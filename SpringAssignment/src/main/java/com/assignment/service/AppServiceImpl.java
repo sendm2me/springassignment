@@ -7,6 +7,7 @@ import com.assignment.model.Subject;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.assignment.dao.DAOInterface;
@@ -16,6 +17,7 @@ import com.assignment.dao.DAOInterface;
 public class AppServiceImpl implements AppService{
 
 	@Autowired
+	@Qualifier("springDataDaoImpl")
 	private DAOInterface daoInterface;
 	public AppServiceImpl(){
 

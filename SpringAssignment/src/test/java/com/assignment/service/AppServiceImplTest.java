@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
@@ -42,8 +43,8 @@ public class AppServiceImplTest {
 	 @TestConfiguration
 	    static class SpringDataDaoImplTestContextConfiguration {
 	  
-	        @Bean
-	        public static SpringDataDaoImpl springDataDao() {
+	        @Bean 
+	        public static SpringDataDaoImpl springDataDaoImpl() {
 	            return new SpringDataDaoImpl();
 	        }
 	    } 
@@ -77,7 +78,7 @@ public class AppServiceImplTest {
 		subject.setDurationInHours(11);
 		subject.setReferences(setBook);	
 		
-		SpringDataDaoImplTestContextConfiguration.springDataDao().subjectInput=5l;
+		SpringDataDaoImplTestContextConfiguration.springDataDaoImpl().subjectInput=5l;
 				
 		Mockito.when(subjRepo.findById(subjectInput)).thenReturn(Optional.of(subject));
 		Mockito.when(subjRepo.save(subject)).thenReturn(subject);	

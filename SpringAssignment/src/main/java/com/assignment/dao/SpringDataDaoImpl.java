@@ -6,12 +6,13 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.assignment.model.Book;
 import com.assignment.model.Subject;
 
-@Component
+@Component("springDataDaoImpl")
 public class SpringDataDaoImpl implements DAOInterface{
 
 	@Autowired
